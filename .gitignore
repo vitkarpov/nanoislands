@@ -1,12 +1,7 @@
 .idea
-*.sublime-*
+.npm-debug.log
 node_modules
-npm-debug.log
-._.DS_Store
-.DS_Store
-*.yate.ast
-nanoislands.css
-nanoislands.ie.css
-nanoislands.js
-nanoislands.yate.js
-demo/demo.yate.js
+build
+*.yate.js
+*.yate.obj
+#!build/*.yate.js

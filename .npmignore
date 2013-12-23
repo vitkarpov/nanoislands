@@ -1,1 +1,7 @@
 .git
+.borschik
+.npm-debug.log
+node_modules
+build
+test
+.travis.yml
