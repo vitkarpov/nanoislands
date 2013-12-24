@@ -48,7 +48,7 @@
         "grunt-contrib-stylus": "*",
         "grunt-contrib-watch": "*",
         "grunt-borschik": "*",
-        "grunt-yate": "*",
+        "grunt-yate": "0.0.15",
         "grunt-shell": "*",
         "grunt-contrib-clean": "*",
         "autoprefixer-stylus": "*",
