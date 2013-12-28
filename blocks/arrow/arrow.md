@@ -4,18 +4,18 @@
 
     nb-arrow()
 
-* search: 'true'
-* buttonContent: 'Найти'
+* `'search'`: `true()`
+* `'buttonContent'`: `'Найти'`
 
 ### Options
 
-* search: true() — display search form
-* href: ... — URL for service arrow link
-* action: ... — action URL for search form
-* text: ... — text for service arrow or link rendered before search input
-* buttonContent: ... — text for form field's 'submit' button
-* value: ... — placeholder for search field
-* requests: ... — info about unber of request with this search field
+* `'search'` {boolean} — display search form
+* `'href'` {string} — URL for service arrow link
+* `'action'` {string} — action URL for search form
+* `'text'` {string} — text for service arrow or link rendered before search input
+* `'buttonContent'` {string} — text for form field's `'submit'` button
+* `'value'` {string} — placeholder for search field
+* `'requests'` {string} — info about number of request with this search field
 
 ### Examples
 
@@ -59,7 +59,18 @@ Arrow with search form and namelink enabled:
 
 ### Initialisation
 
-...
+Initialize nb block on DOM node:
+
+```
+    nb.block(node);
+```
+
+Initialize all nb blocks with class '_init' within DOM node
+
+```
+    nb.init(node);
+```
+
 
 ### Arrow methods
 

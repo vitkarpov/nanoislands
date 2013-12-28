@@ -10,20 +10,20 @@
 
 * `'size'` {string} `'s' / 'm' / 'l'`
 * `'theme'` {string} `'normal' / 'action' (yellow) / 'dark' / 'pseudo' / 'promo' (big yellow)`
-* `'id'` {string} ...
-* `'name'` {string} ...
-* `'class'` {array} `['my_class1', 'my_class2']` — additional classes
+* `'id'` {string}
+* `'name'` {string}
+* `'class'` {array} `['my_class1' 'my_class2']` — additional classes
 * `'disabled'` {boolean} — disabled button
-* `'icon'` {string} ... — link to icon
-* `'content'` {string} ... — content of button
-* `'attrs'` {object} `{'type': 'submit', 'attr2: 'value2' }` — custom DOM attributes for button
+* `'icon'` {string} — link to icon
+* `'content'` {string} — content of button
+* `'attrs'` {object} `{'type': 'submit' 'attr2: 'value2' }` — custom DOM attributes for button
 * `'static'` {boolean} — block without nanoblocks functionality (JavaScript API)
 * `'type'` {string} `'file'` — attach button. This is not DOM type aka `<input type=""/>`, this is instance type.
 * `'href'` {string} — button with `<a href=''>`
 
 #### Example
 
-Action buttom, size L with custom classes
+Action button, size L with custom classes
 
 ```
 
@@ -47,6 +47,7 @@ Action buttom, size L with custom classes
 ### Initialization
 
 Initialize nb block on DOM node:
+
 ```
 
     nb.block(node);
