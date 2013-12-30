@@ -32,10 +32,10 @@ nb.define('input', {
     /**
      * Focus the input
      * @fires 'nb-input_focused'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     focus: function() {
-        if (this.$node.is('.is-disabled')) {
+        if (!this.isEnabled()) {
             return this;
         }
 
@@ -53,7 +53,7 @@ nb.define('input', {
     /**
      * Blur the input
      * @fires 'nb-input_blured'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     blur: function() {
         this.$node.removeClass('nb-input_focus');
@@ -65,7 +65,7 @@ nb.define('input', {
     /**
      * Disables the input
      * @fires 'nb-input_disabled'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     disable: function() {
         this.$node.addClass('is-disabled');
@@ -77,7 +77,7 @@ nb.define('input', {
     /**
      * Enables the input
      * @fires 'nb-input_enabled'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     enable: function() {
         this.$node.removeClass('is-disabled');
@@ -89,13 +89,13 @@ nb.define('input', {
     /**
      * Set value of the input
      * @param {String|Object} value
-     * @fires 'nb-input_value-setted'
-     * @returns {nb.block}
+     * @fires 'nb-input_value-set'
+     * @returns {Object} nb.block
      */
     setValue: function(value) {
         this.value = value;
         this.$control.val(value);
-        this.trigger('nb-input_value-setted');
+        this.trigger('nb-input_value-set');
         return this;
     },
 
@@ -118,10 +118,29 @@ nb.define('input', {
     },
 
     /**
+     * Set name of the input
+     * @param {String|Object} value
+     * @fires 'nb-input_name-set'
+     * @returns {Object} nb.block
+     */
+    setName: function(value) {
+        this.$control.attr('name', value);
+        this.trigger('nb-input_name-set');
+        return this;
+    },
+    
+    /**
      * Return state of the input
      * @returns {Boolean}
      */
     isEnabled: function() {
         return !this.$control.prop('disabled');
+    },
+
+    /**
+     * Destroy the button
+     */
+    destroy: function() {
+        nb.destroy(this.node.getAttribute('id'));
     }
 });

@@ -23,6 +23,7 @@ nb.define('select', {
     onInit: function() {
         nb.init(this);
         this.$node = $(this.node);
+        this.$control = this.$node.find('select');
         this.data = this.data();
 
         // find elements and values
@@ -206,9 +207,17 @@ nb.define('select', {
     },
 
     /**
+     * Get name of the select
+     * @returns {String|Object} name
+     */
+    getName: function() {
+        return this.$control.prop('name');
+    },
+
+    /**
      * Disables the select
      * @fires 'nb-select_disabled'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     disable: function() {
         if (this.isEnabled()) {
@@ -221,7 +230,7 @@ nb.define('select', {
     /**
      * Enables the select
      * @fires 'nb-select_enabled'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     enable: function() {
         if (!this.isEnabled()) {
@@ -243,7 +252,7 @@ nb.define('select', {
      * Set new items for select
      * @params {Array} source New source
      * @fires 'nb-select_source-changed'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     setSource: function(source) {
         var html = [];
@@ -284,7 +293,7 @@ nb.define('select', {
      * @param {Array|Object} items
      * @param {Number} index to insert
      * @fires 'nb-select_source-changed'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     addToSource: function(items, index) {
         var source = this.getSource();
@@ -313,7 +322,7 @@ nb.define('select', {
      * Remove items to select
      * @param {Array|Object|number} items or index
      * @fires 'nb-select_source-changed'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     removeFromSource: function(param) {
         var source = this.getSource();
@@ -342,7 +351,7 @@ nb.define('select', {
     /**
      * Focus the select
      * @fires 'nb-select_focused'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     focus: function() {
         if (this.isEnabled()) {
@@ -355,7 +364,7 @@ nb.define('select', {
     /**
      * Blur the select
      * @fires 'nb-select_blured'
-     * @returns {nb.block}
+     * @returns {Object} nb.block
      */
     blur: function() {
         if (this.isEnabled()) {
