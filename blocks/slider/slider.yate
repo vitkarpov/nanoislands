@@ -29,7 +29,7 @@ match .slider nb {
                 }
 
                 <span class="nb-button__text">
-                    <input class="nb-slider__fallback" type="text" value="{.value}" id="{.id}__value" />
+                    <input class="nb-slider__fallback" type="text" value="{.value}" id="{.id}__value" readonly="readonly" />
                 </span>
             </label>
         </div>

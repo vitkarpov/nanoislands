@@ -19,7 +19,6 @@ nb.define('slider', {
         that.$fallback = $(that.node).find('.nb-slider__fallback');
         that.$control = $(that.node).children('.nb-slider__body');
 
-        that.$fallback.attr('readonly', 'readonly');
         that.$control.show();
 
         that.$node = $(that.node);
@@ -42,7 +41,6 @@ nb.define('slider', {
         this.$fallback.attr('value', this.data.value);
 
         // Adjust the width of an input to its content
-        this.$fallback.width(0);
         this.$fallback.width(this.$fallback[0].scrollWidth);
     },
 
