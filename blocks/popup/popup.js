@@ -475,7 +475,12 @@
 nb.define('popup-toggler', {
 
     events: {
+        'init' : 'oninit',
         'click': 'onclick'
+    },
+
+    'oninit': function() {
+        this.$node = $(this.node);
     },
 
     'onclick': function() {
