@@ -18,6 +18,40 @@ describe('Slider Tests', function() {
 
             expect(input.value).to.be.equal('25');
         });
+
+        it('should fire event nb-slider_slide', function() {
+            var checked = false;
+            this.slider.on('nb-slider_slide', function() {
+                checked = true;
+            });
+
+            this.slider.$body.data('uiSlider')._trigger('slide');
+
+            expect(checked).to.be.ok();
+        });
+
+        it('should fire event nb-slider_slidestop', function() {
+            var checked = false;
+            this.slider.on('nb-slider_slidestop', function() {
+                checked = true;
+            });
+
+            this.slider.$body.data('uiSlider')._trigger('stop');
+
+            expect(checked).to.be.ok();
+        });
+
+        it('should fire event nb-slider_slidestart', function() {
+            var checked = false;
+
+            this.slider.on('nb-slider_slidestart', function() {
+                checked = true;
+            });
+
+            this.slider.$body.data('uiSlider')._trigger('start');
+
+            expect(checked).to.be.ok();
+        });
     });
 
     describe('#setValue()', function() {
@@ -78,11 +112,11 @@ describe('Slider Tests', function() {
 
     describe('#disable()', function() {
         it('should set disable state', function() {
-            var $conrol = this.slider.$node.find('.nb-slider__body');
+            var $control = this.slider.$node.find('.nb-slider__body');
 
             this.slider.disable();
 
-            expect($conrol.slider('option', 'disabled')).to.be.ok();
+            expect($control.slider('option', 'disabled')).to.be.ok();
         });
 
         it('should has disabled mod', function() {
@@ -122,17 +156,24 @@ describe('Slider Tests', function() {
 
         beforeEach(function() {
             sinon.spy($.fn, 'slider');
+            sinon.spy($.fn, 'off');
             sinon.spy(nb, 'destroy');
         });
 
         afterEach(function() {
             $.fn.slider.restore();
+            $.fn.off.restore();
             nb.destroy.restore();
         });
 
         it("should call $.fn.slider('destroy')", function() {
             this.slider.destroy();
             expect($.fn.slider.calledWithExactly('destroy')).to.be.equal(true);
+        });
+
+        it("should call $.fn.off('slidestart slidestop slide')", function() {
+            this.slider.destroy();
+            expect($.fn.off.calledWithExactly('slidestart slidestop slide')).to.be.equal(true);
         });
 
         it("should call nb.destroy('slider')", function() {
